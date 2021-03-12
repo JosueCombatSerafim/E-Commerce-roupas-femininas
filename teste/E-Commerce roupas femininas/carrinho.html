@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Carrinho</title>
+</head>
+<body>
+    <div id="site">
+
+        <header>
+            <img src="imagens/logo.png" alt="logo">
+            <div id="carrinho">
+                <a href="index.html" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-decoration: none; color: black; font-style: oblique; font-size: 18px; font-weight: bold;">
+                    Continuar comprando
+                </a>
+            </div>
+        </header>
+        
+        <hr>
+
+
+    <div id="listaProdutos" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 17px; margin-top: 20px; margin-left: 7%; margin-right: 7%;">
+        
+    </div>
+
+    <div style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 15px; font-weight: bold; font-size: 20px; margin-left: 7%; margin-right: 7%; margin-top: 15px;">Total: R$<span id="total"></span> </div>
+
+
+    <script>
+
+        var total = 0
+        var valor = 0
+        var numero_de_produtos = localStorage.length/2 + 1
+
+        for(var i = 1; i < numero_de_produtos; i++) {
+            var produto = localStorage.getItem("id" + i)
+            if (produto == null) {
+                numero_de_produtos = numero_de_produtos + 1
+                
+            }
+
+
+            if (produto == 1) {
+                document.getElementById("listaProdutos").innerHTML += "Camisa Mescla Cinza <br>Valor: ";
+            }
+            if (produto == 2) {
+                document.getElementById("listaProdutos").innerHTML += "Saia em Couro Preta <br>Valor: ";
+            }
+            if (produto == 3) {
+                document.getElementById("listaProdutos").innerHTML += "Cardigan Tigre <br> Valor: ";
+            }
+            if (produto == 4) {
+                document.getElementById("listaProdutos").innerHTML += "Cardigan Off White <br> Valor: ";
+            }
+            if (produto == 5) {
+                document.getElementById("listaProdutos").innerHTML += "Body Leopardo <br> Valor: ";
+            }
+            if (produto == 6) {
+                document.getElementById("listaProdutos").innerHTML += "Casado Pelos Rosa <br> Valor: ";
+            }
+            if (produto == 7) {
+                document.getElementById("listaProdutos").innerHTML += "Cropped Stripes <br> Valor: ";
+            }
+            if (produto == 8) {
+                document.getElementById("listaProdutos").innerHTML += "Camisa Transparente Preta <br> Valor: ";
+            }
+            if (produto == 9) {
+                document.getElementById("listaProdutos").innerHTML += "Pochete Clutch Preta <br> Valor: ";
+            }
+            if (produto != null) {
+                document.getElementById("listaProdutos").innerHTML += " ";
+                document.getElementById("listaProdutos").innerHTML += "R$: " + localStorage.getItem("preco" + i) + "<hr>";
+
+            valor = parseFloat(localStorage.getItem("preco" + i));
+            total = (total + valor);
+            }
+            
+            
+            
+        }
+
+        document.getElementById("total").innerHTML = total; 
+    </script>
+
+    <button type="button" onclick="localStorage.clear(); location.reload();"  style="cursor: pointer; text-align: center; background: #000000; color: white; border: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold ;font-size: 19px; height: 28px; width: 170px; margin-left: 7%; margin-right: 7%;"> Limpar carrinho </button>
+
+
+    <div id="rodape" style="bottom: 0;">
+        <footer>Josué Combat Serafim</footer>
+    </div>
+</body>
+</html>

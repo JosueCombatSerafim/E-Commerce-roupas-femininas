@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>STORE</title>
+</head>
+<body>
+    <div id="site">
+
+        <header>
+            <img src="imagens/logo.png" alt="logo">
+            <div id="carrinho">
+                <a href="carrinho.html"><img src="imagens/shopping-bag.png"></a>
+                <i>
+                    <div id="quantidade">
+                        <script>
+                            var quantidade_produtos = localStorage.length/2
+                            document.getElementById("quantidade").innerHTML += quantidade_produtos;
+                        </script>
+                    </div>
+                </i>
+            </div>
+        </header>
+        
+        <hr>
+
+        <div id="conteudo">
+
+            <div id="cabacalhoFiltros">
+                <h1>Blusas</h1>
+            </div>
+
+            <script src="ordenar.js"></script>
+            <div id="ordem">
+                <select name="ordenar" id="ordem" onChange=ordenarProdutos(this.value)>
+                    <option value="1" disabled selected hidden>Ordenar por: </option>
+                    <option value="2" >Mais recente</option>
+                    <option value="3">Menor preço</option>
+                    <option value="4">Maior preço</option>
+                </select>
+            </div>
+
+            <script src="produtos.json"></script>
+
+            <input type="checkbox" id="box" onclick="mostrarFiltro()">
+
+            <script>
+                function mostrarFiltro(){
+                    const filtro = document.getElementById("filtros");
+
+                    filtro.style.display = "block";
+                    filtro.style.float = "none"
+                    
+                }
+            </script>
+
+            <div id="conteudo-left">
+                <div id="filtrarBotao">
+                    <label for="box">Filtrar</label>
+                </div>
+                <div id="filtros">    
+                    <h2>CORES</h2>
+                    <div id="cores">
+                        <script src="cor.js"></script>
+                            <input type="checkbox" id="Amarelo" onclick="filtroAmarelo()">
+                            <label for="Amarelo">Amarelo</label>
+                            <input type="checkbox" id="Azul" onclick="filtroAzul()">
+                            <label for="Azul">Azul</label>
+                            <input type="checkbox" id="Branco" onclick="filtroBranco()">
+                            <label for="Branco"> Branco</label>
+                            <input type="checkbox" id="Cinza" onclick="filtroCinza()">
+                            <label for="Cinza">Cinza</label>
+                            <input type="checkbox" id="Laranja" onclick="filtroLaranja()">
+                            <label for="Laranja">Laranja</label>
+                            <input type="checkbox" id="Verde" onclick="filtroVerde()">
+                            <label for="Verde">Verde</label>
+                            <input type="checkbox" id="Vermelho" onclick="filtroVermelho()">
+                            <label for="Vermelho">Vermelho</label>
+                            <input type="checkbox" id="Preto" onclick="filtroPreto()">
+                            <label for="Preto">Preto</label>
+                            <input type="checkbox" id="Rosa" onclick="filtroRosa()">
+                            <label for="Rosa">Rosa</label>
+                            <input type="checkbox" id="Vinho" onclick="filtroVinho()">
+                            <label for="Vinho">Vinho</label>
+                    </div>
+                    <h2>TAMANHOS</h2>
+                    <div id="tamanho">
+                        <script src="tamanho.js"></script>
+                        <input type="checkbox" id="p" onclick="filtroP()">
+                        <label for="p"><p>P&nbsp;</p></label>
+                        <input type="checkbox" id="m" onclick="filtroM()">
+                        <label for="m"><p>M&nbsp;</p></label>
+                        <input type="checkbox" id="g" onclick="filtroG()">
+                        <label for="g"><p>G&nbsp;</p></label>
+                        <input type="checkbox" id="gg" onclick="filtroGG()">
+                        <label for="gg"><p>GG</p></label>
+                        <input type="checkbox" id="u" onclick="filtroU()">
+                        <label for="u"><p>U&nbsp;</p></label>
+                        <input type="checkbox" id="a" onclick="filtro36()">
+                        <label for="a"><p>36</p></label>
+                        <input type="checkbox" id="b" onclick="filtro38()">
+                        <label for="b"><p>38</p></label>
+                        <input type="checkbox" id="c" onclick="filtro40()">
+                        <label for="c"><p>40</p></label>
+                        <input type="checkbox" id="d" onclick="filtro42()">
+                        <label for="d"><p>42</p></label>
+                        <input type="checkbox" id="e" onclick="filtro44()">
+                        <label for="e"><p>44</p></label>
+                        <input type="checkbox" id="f" onclick="filtro46()">
+                        <label for="f"><p>46</p></label>
+                    </div>
+                    <h2>FAIXA DE PREÇO</h2>
+                    <div id="preco">
+                        <script src="preco.js"></script>
+                        <input type="checkbox" id="1" onclick="filtroAte50()">
+                        <label for="1">de R$ 0 até R$ 50</label>
+                        <input type="checkbox" id="2" onclick="filtro51Ate150()">
+                        <label for="2">de R$ 51 até R$ 150</label>
+                        <input type="checkbox" id="3" onclick="filtro151Ate300()">
+                        <label for="3">de R$ 151 até R$ 300</label>
+                        <input type="checkbox" id="4" onclick="filtro301Ate500()">
+                        <label for="4">de R$ 301 até R$ 500</label>
+                        <input type="checkbox" id="5" onclick="filtroMais500()">
+                        <label for="5">a partir de R$ 501</label>
+                    </div>
+                    <div id="botãoAplicarFiltros">
+                        <input type="button" id="aplicarFiltros" value="Fechar" onclick="aplicarFiltro()"
+                        style="background-color: rgb(107, 207, 247);
+                        border: 0;
+                        height: 22px;
+                        width: 110px;
+                        font-weight: bold;
+                        font-size: 13px;
+                        cursor: pointer;"></input>
+    
+
+                        <script>
+                            function aplicarFiltro(){
+                                const aplicar = document.getElementById("filtros");
+
+                                aplicar.style.display = "none";
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <script src="carrinho.js"></script>
+
+            <div id="conteudo-right">
+
+            </div>
+
+            
+
+
+                
+            <script>
+                let produtos= '{"roupas":[{"id":"1", "imagem":"imagens/img_2.png", "nome": "CAMISETA MESCLA", "cor": "cinza", "tamanho": "", "preco": 28.00, "parcela": "até 3x de R$9,33"}, {"id":"2","imagem":"imagens/img_3.png", "nome": "SAIA EM COURO", "cor": "preto", "tamanho": "", "preco": 398.00, "parcela": "até 5x de R$79,60"}, {"id":"3","imagem":"imagens/img_4.png", "nome": "CARDIGAN TIGRE", "cor": "laranja", "tamanho": "", "preco": 398, "parcela": "até 5x de R$79,60"}, {"id":"4","imagem":"imagens/img_5.png", "nome": "CARDIGAN OFF WHITE", "cor": "branco", "tamanho": "", "preco": 99.90, "parcela": "até 3x de R$33,30"}, {"id":"5","imagem":"imagens/img_6.png", "nome": "BODY LEOPARDO", "cor": "laranja", "tamanho": "", "preco": 129.90, "parcela": "até 3x de R$43,30"}, {"id":"6","imagem":"imagens/img_7.png", "nome": "CASACO PELOS", "cor": "rosa", "tamanho": "", "preco": 398.00, "parcela": "até 5x de R$79,60"}, {"id":"7","imagem":"imagens/img_8.png", "nome": "CROPPED STRIPES", "cor": ["azul", "amarelo", "laranja"], "tamanho": "", "preco": 120.00, "parcela": "até 3x de R$40,00"}, {"id":"8","imagem":"imagens/img_9.png", "nome": "CAMISA TRANSPARENTE", "cor": "preto", "tamanho": "", "preco": 398.00, "parcela": "até 5x de R$79,60"}, {"id":"9","imagem":"imagens/img_10.png", "nome": "POCHETE CLUTCH", "cor": "preto", "tamanho": "u", "preco": 99.00, "parcela": "até 3x de R$33,00"}]}';
+                let p_obj=JSON.parse(produtos)
+                console.log(p_obj)
+                var html = "";
+                p_obj.roupas.forEach(function (roupas){
+                    html += `<div>
+                                <img src="${roupas.imagem}"></img><br>
+                                <a>${roupas.nome}</a><br>
+                                <a><strong>R$ ${roupas.preco.toFixed(2)}</strong></a><br>
+                                <a>${roupas.parcela}</a><br>
+                                <button type="button" id="adicionarCarrinho" onclick="addCarrinho(${roupas.id}, ${roupas.preco.toFixed(2)})">Comprar</button>
+                            </div>`});
+                document.getElementById("conteudo-right").innerHTML = html
+            </script>
+            
+
+        
+            
+        </div>
+    
+    </div>
+
+    
+
+    
+    <input type="button" id="more" value="Carregar Mais" onclick="carregarMais()"></input>
+    
+
+    <script>
+        function carregarMais(){
+            const botao = document.getElementById("more");
+
+            botao.style.display = "none";
+        }
+    </script>
+
+    <div id="rodape">
+        <footer>Josué Combat Serafim</footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+@charset "UTF-8";
+
+html, body{
+    height: 100%;
+}
+
+#site{
+    width: 98vw;
+    height: 100%;
+    min-height: 100%;
+    margin-top:0;
+    margin-left:auto;
+    margin-bottom:0;
+    margin-right:auto;
+    background-color: white;
+    position: relative;
+}
+
+header{
+    width: 93%;
+    height:40px;
+    background-color:white;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+header > img{
+    float: left;
+}
+
+header > #carrinho{
+    text-align: right;
+    margin-right: 14%;
+}
+
+header > #carrinho > a > img{
+    block-size: 28px;
+    clear: both;
+    padding-bottom: 0;
+    position: absolute;
+}
+
+header > #carrinho > i{
+    margin-left: 15px;
+    top: 15px;
+    clear: both;
+    margin-top: 0px;
+    position: absolute;
+    background-color: rgb(107, 207, 247);
+    text-align: center;
+    float: right;
+    border-radius:50%;
+    width:1em;
+    height:1em;
+    border: 2px solid rgb(107, 207, 247);
+}
+
+hr{
+    margin: 0;
+}
+
+#conteudo{
+    width:93%;
+    height: max-content;
+    background-color:white;
+    min-height: 100%;
+    position: relative;
+}
+
+#conteudo > #cabacalhoFiltros > h1{
+    margin-left: 7%;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#conteudo > #ordem{
+    display: flex;
+    float: right;
+    margin-right: 7%;
+}
+
+#conteudo > #ordem > select{
+    cursor: pointer;
+}
+
+#conteudo-left{
+    margin-left: 7%;
+    width: 13%;;
+    height: max-content;
+    float:left;
+    background-color:white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+    margin-right: 7%;
+    }
+
+#conteudo-left > #filtrarBotao{
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#box{
+    display: none;
+}
+
+#cores{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 13px;
+}
+
+#cores > input{
+    display: none;    
+}
+
+#cores > label{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+#cores > label::before{
+    position: absolute;
+    left: 0;
+    top: -1.5px;
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: solid 1px #000000;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#cores > label::after{
+    position: absolute;
+    left: 3px;
+    top: 1.5px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: solid 0px #000000;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#cores > input:checked + label::after{
+    background-color: rgb(107, 207, 247);
+}
+
+#preco{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 13px;
+}
+
+#preco > input{
+    display: none;    
+}
+
+#preco > label{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+#preco > label::before{
+    position: absolute;
+    left: 0;
+    top: -1.5px;
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: solid 1px #000000;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#preco > label::after{
+    position: absolute;
+    left: 3px;
+    top: 1.5px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: solid 0px #000000;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#preco > input:checked + label::after{
+    background-color: rgb(107, 207, 247);
+}
+
+#tamanho{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#tamanho > input{
+    display: none; 
+}
+
+#tamanho > label{
+    font-family: monospace;
+    font-size: 12px;
+    align-items: center;
+    color: #00000052;
+    padding-right: 10px;
+    padding-left: 18px;
+    cursor: pointer;
+    position: relative;
+}
+
+#tamanho > label::before{
+    margin: 5px;
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    content: "";
+    width: 28px;
+    height: 28px;
+    border: solid 1px #00000052;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#tamanho > input:checked + label::before{
+    border: solid 2px rgb(107, 207, 247);
+}
+
+#botãoAplicarFiltros{
+    display: none;
+}
+
+#conteudo-right{
+    margin-right: 7%;
+    width: 66%;
+    height: max-content;
+    float:left;
+    background-color:white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#conteudo-right > div{
+    margin: 20px;
+    text-align: center;
+}
+
+#conteudo-right > div > button{
+    block-size: 30px;
+    width: 160px;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#conteudo-right > h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#conteudo-right > h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#conteudo-right > p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#more{
+    margin-top: 20px;
+    margin-left: 45%;
+    background-color: rgb(107, 207, 247);
+    border: 0;
+    height: 22px;
+    width: 110px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#rodape{
+    display: block;
+    margin: 15px 0 0 0;
+    clear: both;
+    width: 98vw;
+    position: relative;
+}
+
+#rodape > footer{
+    display: block;
+    background-color: black;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 98vw;
+    margin: auto auto;
+    padding: 10px 0px;
+    height: 7px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: small;
+    text-align: center;
+}
+
+@media only screen and (max-width: 640px) {
+    html{
+        width: 97vw;
+    }
+
+    #site{
+        margin: 0;
+        width: 97vw;
+    }
+
+    header{
+        width: 90%;
+    }
+
+    #conteudo{
+        margin-right: 0;
+        width: 97%;
+    }
+
+    #conteudo > #cabacalhoFiltros > h1{
+        text-align: center;
+        font-size: 45px;
+    }
+
+    #conteudo > #conteudo-left{
+        display: inline-block;
+        margin: 0;
+        width: 50%;
+        float: none;
+        text-align: center;
+    }
+
+    #conteudo > #conteudo-left > #filtros{
+        display: none;
+        margin-left: 10%;
+    }
+
+    #conteudo-left > #filtrarBotao {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 25px;
+        font-weight: bold;
+        display: flex; 
+        width: 100%;
+        margin: 0 0 0 0;
+        border: 1px solid rgba(99, 98, 98, 0.514);
+        height: 40px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    #filtrarBotao > label{
+        cursor: pointer;
+        text-align: center;
+        margin-left: 35%;
+    }
+
+    #box{
+        display: none;
+    }
+
+    #botãoAplicarFiltros{
+        display: block;
+    }
+
+    #botaoAplicarFiltros > #aplicarFiltros{
+        background-color: rgb(107, 207, 247);
+        border: 0;
+        height: 22px;
+        width: 110px;
+        font-weight: bold;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+    #conteudo > #ordem{
+        height: 40px;
+        line-height: 50px;
+        text-align: center;
+        display: inline-block;
+        width: 49.5%;
+        border: 1px solid rgba(99, 98, 98, 0.514);
+        margin: 0;
+    }
+
+    #conteudo > #conteudo-right{
+        margin: 0;
+        margin-top: 50px;
+        width: 100%;
+        height: 100%;
+        background-color:white;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    #conteudo > #conteudo-right > div{
+        margin: 0;
+        margin-top: 20px;
+        width: 50%;
+        height: auto;
+        flex: 200px;
+    }
+
+    #rodape{
+        width: 90%;
+        margin: 0;
+    }
+
+    #rodape > footer{
+        width: 90%;
+    }
+}
